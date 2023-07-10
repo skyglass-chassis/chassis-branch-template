@@ -47,9 +47,9 @@ jobs:
     - name: Publish chassis
       run: |
         cd service-chassis
-        export MAVEN_REPO_USERNAME=skyglass
+        export MAVEN_REPO_USERNAME=${GITHUB_REPOSITORY%%/*}
         export MAVEN_REPO_PASSWORD="${{ secrets.GITHUB_TOKEN }}"
-        ./gradlew publish -P chassisRepo=https://maven.pkg.github.com/$GITHUB_REPOSITORY
+        ./gradlew publish -P chassisRepo=https://maven.pkg.github.com/${GITHUB_REPOSITORY?}
 
     - name: Publish template
       run: |
