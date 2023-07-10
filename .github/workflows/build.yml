@@ -53,14 +53,14 @@ jobs:
 
     - name: Publish template
       run: |
-        git config --global user.email "chris@chrisrichardson.net"
-        git config --global user.name "Chris Richardson"
+        git config --global user.email "skyglass2001@gmail.com"
+        git config --global user.name "Michael Glass"
         ./publish-service-template.sh "https://maven.pkg.github.com/$GITHUB_REPOSITORY"
 
     - name: Publish image
       run: |
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u cer --password-stdin
-        docker tag live-projects-service-template ghcr.io/$GITHUB_REPOSITORY
+        docker tag service-template ghcr.io/$GITHUB_REPOSITORY
         docker push ghcr.io/$GITHUB_REPOSITORY
 
     - name: Save test results
