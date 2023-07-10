@@ -1,4 +1,4 @@
-rootProject.name = "live-projects-service-template"
+rootProject.name = "service-template"
 
 
 include("test-data")

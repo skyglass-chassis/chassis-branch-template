@@ -1,4 +1,4 @@
-rootProject.name = "live-projects-service-chassis"
+rootProject.name = "service-chassis"
 
 include("service-chassis-dependencies-bom")
 
