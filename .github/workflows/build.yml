@@ -47,19 +47,19 @@ jobs:
     - name: Publish chassis
       run: |
         cd service-chassis
-        export MAVEN_REPO_USERNAME=cer
+        export MAVEN_REPO_USERNAME=skyglass
         export MAVEN_REPO_PASSWORD="${{ secrets.GITHUB_TOKEN }}"
         ./gradlew publish -P chassisRepo=https://maven.pkg.github.com/$GITHUB_REPOSITORY
 
     - name: Publish template
       run: |
         git config --global user.email "skyglass2001@gmail.com"
-        git config --global user.name "Michael Glass"
+        git config --global user.name "skyglass"
         ./publish-service-template.sh "https://maven.pkg.github.com/$GITHUB_REPOSITORY"
 
     - name: Publish image
       run: |
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u cer --password-stdin
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u skyglass --password-stdin
         docker tag service-template ghcr.io/$GITHUB_REPOSITORY
         docker push ghcr.io/$GITHUB_REPOSITORY
 
