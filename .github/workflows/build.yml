@@ -18,10 +18,6 @@ jobs:
     steps:
     - name: Checkout source
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
-
     - uses: actions/setup-java@v1
       with:
         java-version: '11' # The JDK version to make available on the path.
