@@ -33,7 +33,7 @@ jobs:
 
     - name: Publish image
       run: |
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u cer --password-stdin
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u skyglass --password-stdin
         docker tag live-projects-service-template ghcr.io/$GITHUB_REPOSITORY
         docker push ghcr.io/$GITHUB_REPOSITORY
 
